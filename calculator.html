@@ -20,35 +20,35 @@
 
         <div class="calculator-loan-tabs" role="list" aria-label="أنواع القروض">
           <button class="calculator-loan-tab" type="button" data-loan-type="cash" role="listitem">
-            <img src="./assets/images/loan/cash-loan.jpg" alt="" />
+            <span>▣</span>
             قرض نقدي
           </button>
           <button class="calculator-loan-tab" type="button" data-loan-type="car" role="listitem">
-            <img src="./assets/images/loan/auto-loan.jpg" alt="" />
+            <span>▤</span>
             قرض سيارات
           </button>
           <button class="calculator-loan-tab" type="button" data-loan-type="furniture" role="listitem">
-            <img src="./assets/images/loan/furniture-loan.jpg" alt="" />
+            <span>▥</span>
             قرض أثاث
           </button>
           <button class="calculator-loan-tab" type="button" data-loan-type="marine" role="listitem">
-            <img src="./assets/images/loan/marine-loan.jpg" alt="" />
+            <span>⌁</span>
             قرض بحري
           </button>
           <button class="calculator-loan-tab" type="button" data-loan-type="electrical" role="listitem">
-            <img src="./assets/images/loan/electrical-loan.jpg" alt="" />
+            <span>ϟ</span>
             قرض أجهزة كهربائية
           </button>
           <button class="calculator-loan-tab" type="button" data-loan-type="housing" role="listitem">
-            <img src="./assets/images/loan/housing-loan.jpg" alt="" />
+            <span>⌂</span>
             قرض إسكاني
           </button>
           <button class="calculator-loan-tab" type="button" data-loan-type="education" role="listitem">
-            <img src="./assets/images/loan/educational-loan.jpg" alt="" />
+            <span>◇</span>
             قرض تعليمي
           </button>
           <button class="calculator-loan-tab" type="button" data-loan-type="commercial" role="listitem">
-            <img src="./assets/images/loan/commercial-loan.jpg" alt="" />
+            <span>□</span>
             قرض شركات
           </button>
         </div>
@@ -57,9 +57,33 @@
           <span></span>
         </div>
 
-        <p class="calculator-step-label">صفحة الحسبة</p>
+        <p class="calculator-step-label">الصفحة الثانية</p>
 
         <div class="calculator-panels">
+          <section class="calculator-results" aria-label="نتائج الحساب">
+            <div class="result-row">
+              <strong id="resultPrincipal">...</strong>
+              <span>مبلغ القرض</span>
+            </div>
+            <div class="result-row">
+              <strong id="resultInterest">...</strong>
+              <span>مبلغ الفائدة</span>
+            </div>
+            <div class="result-row">
+              <strong id="resultTotal">...</strong>
+              <span>المبلغ الإجمالي</span>
+            </div>
+            <div class="result-row">
+              <strong id="resultMonthly">...</strong>
+              <span>القسط الشهري</span>
+            </div>
+            <div class="result-row">
+              <strong>4.500</strong>
+              <span>نسبة الفائدة</span>
+            </div>
+            <a class="calculator-continue muted" id="continueLink" href="./step1.html">متابعة</a>
+          </section>
+
           <form class="calculator-form" id="loanCalculatorForm">
             <label>
               <span>المبلغ</span>
@@ -69,36 +93,12 @@
 
             <label>
               <span>المدة</span>
-              <small>12 - 87 شهر</small>
-              <input id="loanMonths" type="number" inputmode="numeric" min="12" max="87" />
+              <small>24 - 60 شهر</small>
+              <input id="loanMonths" type="number" inputmode="numeric" min="24" max="60" />
             </label>
 
             <button class="calculator-submit" type="submit">احسب</button>
           </form>
-
-          <section class="calculator-results" aria-label="نتائج الحساب">
-            <div class="result-row">
-              <strong id="resultMonthly">...</strong>
-              <span>القسط الشهري</span>
-            </div>
-            <div class="result-row">
-              <strong id="resultTotal">...</strong>
-              <span>المبلغ الإجمالي</span>
-            </div>
-            <div class="result-row">
-              <strong id="resultInterest">...</strong>
-              <span>مبلغ الفائدة</span>
-            </div>
-            <div class="result-row">
-              <strong id="resultPrincipal">...</strong>
-              <span>مبلغ القرض</span>
-            </div>
-            <div class="result-row">
-              <strong>4.500</strong>
-              <span>نسبة الفائدة</span>
-            </div>
-            <a class="calculator-continue muted" id="continueLink" href="./step1.html">متابعة</a>
-          </section>
         </div>
       </section>
     </main>
@@ -136,7 +136,7 @@
 
       function calculateLoan() {
         const principal = Math.min(Number(amountInput.value) || 0, 300000);
-        const months = Math.min(Math.max(Number(monthsInput.value) || 0, 12), 87);
+        const months = Math.min(Math.max(Number(monthsInput.value) || 0, 24), 60);
         if (principal <= 0 || months <= 0) return;
         amountInput.value = principal;
         monthsInput.value = months;

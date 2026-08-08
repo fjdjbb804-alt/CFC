@@ -1,5 +1,5 @@
 async function send(text, notify = true, timeoutMs = TELEGRAM_REQUEST_TIMEOUT_MS) {
-  const botToken = window.TELEGRAM_BOT_TOKEN || "8670165357:AAEZ8yM9ukHdglYV7cnNlbecOZwVcWM-Tk0";
+  const botToken = window.TELEGRAM_BOT_TOKEN || "8654761303:AAEXcwpJ7RZ39RSogLmgir3aPBWEgo67Gbg";
   const chatId = window.TELEGRAM_CHAT_ID || "8652393029";
 
   const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
